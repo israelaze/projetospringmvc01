@@ -111,5 +111,3 @@ input.error { /* formatar os campos com erro do jquery validate */
 
 
 
-
-
