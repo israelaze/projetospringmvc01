@@ -127,7 +127,7 @@
 						<td><fmt:formatDate pattern="EEE dd/MM/yyyy" value="${funcionario.dataAdmissao}"/></td>
 						<td>${funcionario.situacao}</td>
 						<td>
-							<a href="#" 
+							<a href="/projetoSpringMVC01/funcionario-edicao?id=${funcionario.idFuncionario}" 
 								class="btn btn-primary btn-sm">
 								Editar
 							</a>
@@ -191,4 +191,3 @@
 
 </body>
 </html>
-

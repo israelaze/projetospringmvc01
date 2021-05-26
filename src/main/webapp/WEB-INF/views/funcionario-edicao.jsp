@@ -82,33 +82,31 @@
 	
 
 	<div class="container mt-4">
-		<h5>Cadastro de Funcionário</h5>
+		<h5>Atualização de Funcionário</h5>
 		<hr/>
 		
-		<form id="formcadastro" action="cadastrarFuncionario" method="post">
-		
+		<form id="formedicao" action="atualizarFuncionario" method="post">		
 			<div class="row">
 			
 				<div class="col-md-4">
+				
+					<label>CPF: <strong>${dto.cpf}</strong></label>
+					<br/>	
+					<label>Matrícula: <strong>${dto.matricula}</strong></label>
+					<br/>
+					<br/>
+				
+					<!-- campo oculto -->
+					<form:input path="dto.idFuncionario" type="hidden"/>
 					
 					<label>Nome do Funcionário:</label>
-					<form:input path="dto.nome" name="nome" id="nome" type="text" class="form-control" placeholder="Ex: João da Silva"/>
+					<form:input path="dto.nome" name="nome" id="nome" type="text" 
+						class="form-control" placeholder="Ex: João da Silva"/>
 					<br/>
-					
-					<label>CPF:</label>
-					<form:input path="dto.cpf" name="cpf" id="cpf" type="text" class="form-control" placeholder="Ex: 123.456.789-00"/>
-					<br/>
-					
-					<label>Matrícula:</label>
-					<form:input path="dto.matricula" name="matricula" id="matricula" type="text" class="form-control" placeholder="Ex: 2021-0001"/>
-					<br/>
-
-				</div>
-				
-				<div class="col-md-4">
 					
 					<label>Data de Admissão:</label>
-					<form:input path="dto.dataadmissao" name="dataadmissao" id="dataadmissao" type="date" class="form-control"/>
+					<form:input path="dto.dataadmissao" name="dataadmissao" id="dataadmissao" 
+						type="date" class="form-control"/>
 					<br/>
 					
 					<label>Situação do Funcionário:</label>
@@ -116,17 +114,17 @@
 						<option value="">Escolha uma opção</option>
 						<form:options items="${situacoes}"/>
 					</form:select>
-					<br/>
+					<br/>		
 
 				</div>
-			
+							
 			</div>
 			
 			<div class="row">
 				<div class="col-md-4">
 				
 					<div class="d-grid gap-2">
-  						<button class="btn btn-success" type="submit">Realizar Cadastro</button>
+  						<button class="btn btn-success" type="submit">Salvar Alterações</button>
 					</div>
 				
 				</div>
@@ -152,25 +150,15 @@
 	<script>
 		//quando a página for carregada, faça..
 		$(document).ready(function(){ //page load, start..
-			
-			//aplicando máscara nos campos do formulário..
-			$("#cpf").mask("999.999.999-99");
-			$("#matricula").mask("9999-9999");
-			
+						
 			//aplicando validação ao formulário..
-			$("#formcadastro").validate({
+			$("#formedicao").validate({
 				//regras de validação..
 				rules : {
 					"nome" : {
 						required : true,
 						minlength : 6,
 						maxlength : 150
-					},
-					"cpf" : {
-						required : true
-					},
-					"matricula" : {
-						required : true
 					},
 					"dataadmissao" : {
 						required : true
@@ -186,6 +174,7 @@
 
 </body>
 </html>
+
 
 
 
